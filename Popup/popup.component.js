@@ -49,17 +49,10 @@ angular.
 			if (self.username=='' || self.username==undefined){
 
 				error.css("visibility","visible");
-				if($('.error_message').length>0){
-					
-					error.remove(error_message);
-					error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[0].message+"</p>");
-					
-				}else error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[0].message+"</p>");
-				self.pass='';
-				
+				$('#error_message').html(self.error_msg.errors[0].message);
+				self.pass='';	
 				
 			}
-			
 			else if(self.validateEmail(self.username)==true){
 
 				if(self.username == self.credentials.email && self.pass == self.credentials.pass ){
@@ -71,30 +64,19 @@ angular.
 				else {
 					
 					error.css("visibility","visible");
-					if($('.error_message').length>0){
-					
-						error.remove(error_message);
-						error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[2].message+"</p>");
-					
-					}else error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[1].message+"</p>");
+					$('#error_message').html(self.error_msg.errors[1].message);
 					self.pass='';
 									
 				};
 			}
 			else{
 
-				error.css("visibility","visible");
-				if($('.error_message').length>0){
-					
-					error.remove(error_message);
-					error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[2].message+"</p>");
-					
-				}else error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[2].message+"</p>");
+				error.css("visibility","visible");	
+				$('#error_message').html(self.error_msg.errors[2].message);
 				self.pass='';
 				
 			}; 
 		
-
 		};	
     }
   });
