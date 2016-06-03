@@ -1,0 +1,32 @@
+<button id="login_btn"  ng-click="self.showLogin()">Login</button>
+
+<div  class="overlay" ng-show="self.overlay"  ng-click="self.closeLogin()" >
+				
+	<div  id="Login_popup" ng-click="$event.stopPropagation()" >
+
+		<div class="style">Вход
+		
+			<button id="close_btn" ng-click="self.closeLogin()"></button>
+			
+		</div>
+		
+		<div  id="person_icon" class="style">
+		
+		</div>
+
+		<form name="myForm">
+			<input id="username" name="username" class="credentials" type="text" placeholder="E-mail" ng-model="self.username" name="myInput"/>
+			
+			<div class="error_msg" id="error_msg"  ng-hide="self.error"> 
+				<div class="arrow-up">
+				</div>
+			</div>
+			<input id="password" ng-model="self.pass" name="pass" class="credentials" type="password" placeholder="Password" />
+			
+			<button id="login_button" type="submit" ng-click="self.credentials_check()">Влез</button>
+			
+		</form>
+		
+	</div>
+
+</div>

@@ -1,0 +1,16 @@
+{
+  "errors": [{
+      "field": "email",
+      "message": "This field is required!"
+  },
+  {
+      "field": "email",
+      "message": "Wrong Email or password!"
+  }
+  ,
+  {
+      "field": "email",
+      "message": "E-mail is not valid!"
+  }
+  ]
+}

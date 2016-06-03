@@ -1,0 +1,183 @@
+body{
+	
+	margin:0;
+	padding:0;
+	background:#6FCDFB;
+	overflow:hidden;
+	text-align:center;
+}
+
+#Login_popup {
+	
+  background-color:#123851;
+  height: 580px;
+  width: 470px;
+  position: relative;
+  margin:0 auto;
+  top: 10%;
+  font-family:CustomFont;
+  
+}
+
+.ng-hide {
+  height: 0;
+  width: 0;
+  background-color: transparent;
+  top:-200px;
+  left: 200px;
+  
+}
+
+#login_btn{
+	
+	display:block;
+	margin:0 auto;
+	background: linear-gradient(#6FCDFB,#0080FF);
+	color:#FFFFFF;
+	text-transform:uppercase;
+	font-weight:bold;
+	border:1px solid white;
+	height:50px;
+	width:120px;
+	
+}
+
+@font-face {
+    font-family: CustomFont;
+    src: url(../font/OpenSans.ttf);
+}
+
+#close_btn{
+	
+	width:32px;
+	height:32px;
+	background:url('../img/close.svg')no-repeat;
+	border:none;
+	margin:15px;
+	position:absolute;
+	top:0;
+	right:0;
+
+}
+
+#close_btn:focus,#close_btn:hover{
+	
+	outline:none;
+	background:url('../img/close_hover.svg')no-repeat;
+	
+}
+	
+
+.credentials{
+	
+	display:block;
+	margin:0 auto;
+	height:45px;
+	width:80%;
+	padding-left:40px;
+	font-size:20px;
+	color:#62ADDE;
+	outline: none;
+	border:none;
+	
+}
+
+::-webkit-input-placeholder { 
+    color:#B5C0C2;
+	
+}
+
+#username{
+	
+	margin-top:30px;
+	background: url(../img/email.svg) no-repeat scroll 5px 5px,#E4F2F4;
+	
+}
+#password{
+	
+	margin-top:10px;
+	background: url(../img/password.svg) no-repeat scroll 5px 5px,#E4F2F4;
+	
+}
+.style{
+	
+	height:63px;
+	width:100%;
+	text-transform:uppercase;
+	text-align:center;
+	font-size:24px;
+	line-height:63px;
+	color:#E4F2F4;
+
+}
+#person_icon{
+	
+	background:url('../img/login.svg')no-repeat center,url('../img/circle.svg')no-repeat center;
+	background-color:#62ADDE;
+	
+}
+.error_msg{
+	
+	background:#FF0000;
+	height:24px;
+	width:80%;
+	margin:0 auto;
+	border-bottom:1px solid #990000;
+	border-radius:2px;
+	text-align:justify;
+	visibility:hidden;
+	line-height:2px;
+	font-size:16px;
+	color:#FFFFFF;
+	padding:3px;
+}
+
+.arrow-up {
+	
+	position:relative;
+	top:-7px;
+	left:10px;
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid #FF0000;
+	
+}
+
+#login_button{
+	
+	width:80%;
+	height:60px;
+	display:block;
+	margin:0 auto;
+	position:absolute;
+	bottom:40px;
+	border:none;
+	left:10%;
+	text-transform:uppercase;
+	text-align:center;
+	font-size:24px;
+	color:#E4F2F4;
+	background:url('../img/arrow.svg') no-repeat right,#62ADDE;
+}
+
+#login_button:focus,#login_button:hover{
+	
+	outline:none;
+	background-color:#81bce4;
+	
+}
+
+.overlay{
+	
+	height: 100%;
+    width: 100%;
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0, 0.5); 
+   
+	
+}
