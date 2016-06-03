@@ -47,11 +47,11 @@ angular.
 		self.credentials_check = function(){
 			
 			if (self.username=='' || self.username==undefined){
-
+				
 				error.css("visibility","visible");
 				if($('.error_message').length>0){
 					
-					error.remove(error_message);
+					error_message.remove();
 					error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[0].message+"</p>");
 					
 				}else error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[0].message+"</p>");
@@ -73,8 +73,8 @@ angular.
 					error.css("visibility","visible");
 					if($('.error_message').length>0){
 					
-						error.remove(error_message);
-						error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[2].message+"</p>");
+						error_message.remove();
+						error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[1].message+"</p>");
 					
 					}else error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[1].message+"</p>");
 					self.pass='';
@@ -86,7 +86,7 @@ angular.
 				error.css("visibility","visible");
 				if($('.error_message').length>0){
 					
-					error.remove(error_message);
+					error_message.remove();
 					error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[2].message+"</p>");
 					
 				}else error.append("<p class='error_message' id='error_message'>"+self.error_msg.errors[2].message+"</p>");
