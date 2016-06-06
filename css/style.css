@@ -7,6 +7,12 @@ body{
 	text-align:center;
 }
 
+form{
+	
+	height:40px;
+	width:100%;
+	
+}
 #Login_popup {
 	
   background-color:#123851;
@@ -110,11 +116,28 @@ body{
 	color:#E4F2F4;
 
 }
-#person_icon{
+#icon_menu{
 	
-	background:url('../img/login.svg')no-repeat center,url('../img/circle.svg')no-repeat center;
 	background-color:#62ADDE;
 	
+}
+
+.login_person_link{
+	
+	float:left;
+	width:12%;
+	height:100%;
+	background:url('../img/login.svg')no-repeat center,url('../img/circle.svg')no-repeat center;
+
+}
+
+.password_reset_link{
+	
+	float:left;
+	width:12%;
+	height:100%;
+	background:url('../img/password-reset.svg')no-repeat center,url('../img/circle.svg')no-repeat center;
+
 }
 .error_msg{
 	
