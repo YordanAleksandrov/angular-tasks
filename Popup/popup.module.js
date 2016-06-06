@@ -1,7 +1,3 @@
 'use strict';
 
-angular.module('popup', [
-	
-	'loginform'
-
-]);
+angular.module('popup', []);

@@ -93,12 +93,14 @@ form{
 	
 }
 
-#username{
+.username_class{
 	
 	margin-top:30px;
 	background: url(../img/email.svg) no-repeat scroll 5px 5px,#E4F2F4;
 	
 }
+
+
 #password{
 	
 	margin-top:10px;
@@ -125,19 +127,28 @@ form{
 .login_person_link{
 	
 	float:left;
+	margin-left:70px;
 	width:12%;
 	height:100%;
+	border-radius:25px;
 	background:url('../img/login.svg')no-repeat center,url('../img/circle.svg')no-repeat center;
 
 }
 
 .password_reset_link{
 	
-	float:left;
+	float:right;
+	margin-right:70px;
 	width:12%;
 	height:100%;
+	border-radius:25px;
 	background:url('../img/password-reset.svg')no-repeat center,url('../img/circle.svg')no-repeat center;
 
+}
+.password_reset_link,.login_person_link:hover{
+	
+	cursor:pointer;
+	
 }
 .error_msg{
 	
@@ -168,7 +179,7 @@ form{
 	
 }
 
-#login_button{
+.buttons{
 	
 	width:80%;
 	height:60px;

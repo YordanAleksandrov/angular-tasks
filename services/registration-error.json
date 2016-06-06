@@ -6,11 +6,14 @@
   {
       "field": "email",
       "message": "Wrong Email or password!"
-  }
-  ,
+  },
   {
       "field": "email",
       "message": "E-mail is not valid!"
+  },
+  {
+      "field": "email",
+      "message": "This E-mail doesn't exist in our database"
   }
   ]
 }

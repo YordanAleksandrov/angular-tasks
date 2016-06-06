@@ -1,21 +1,46 @@
-<button id="login_btn"  ng-click="popup.showLogin()">Login</button>
+<button id="login_btn"  ng-click="self.showLogin()">Login</button>
 
-<div  class="overlay" ng-show="popup.overlay"  ng-click="popup.closeLogin()" >
+<div  class="overlay" ng-show="self.overlay"  ng-click="self.closeLogin()" >
 				
 	<div  id="Login_popup" ng-click="$event.stopPropagation()" >
 
-		<div class="style">Вход
+		<div class="style">{{self.titles}}
 		
-			<button id="close_btn" ng-click="popup.closeLogin()"></button>
+			<button id="close_btn" ng-click="self.closeLogin()"></button>
 			
 		</div>
 		
 		<div  id="icon_menu" class="style">
-		<div class="login_person_link"></div>
-		<div class="password_reset_link"></div>
+			<div class="login_person_link" ng-click="self.LoginForm()"></div>
+			<div class="password_reset_link" ng-click="self.passwordReset()"></div>
 		</div>
-
-		<login-form></login-form>
+		
+		<form name="myForm" id="myform" ng-hide="self.myform">
+			<input  id="username" name="username" class=" username_class credentials" type="text" placeholder="E-mail" ng-model="self.username" name="myInput"/>
+			
+			<div class="error_msg" id="error_msg"  ng-hide="self.error"> 
+				<div class="arrow-up">
+				</div>
+				
+			</div>
+			<input id="password" ng-model="self.pass" name="pass" class="credentials" type="password" placeholder="Password" />
+			
+			<button id="login_button"  class="buttons" type="submit" ng-click="self.credentials_check()">Влез</button>
+			
+		</form>
+		
+		<form name="myFormP" id="password_reset" ng-show="self.myform_password_reset">
+		
+			<input  id="username_reset" name="username_reset" class="username_class credentials" type="text" placeholder="E-mail" ng-model="self.username_reset" name="myInput2"/>
+			
+			<div class="error_msg" id="error_msg_reset"  ng-hide="self.error_reset"> 
+				<div class="arrow-up">
+				</div>
+				
+			</div>
+			
+			<button id="send_button" class="buttons" type="submit" ng-click="self.passwordResetCheck()">Изпрати</button>
+		</form>
 		
 	</div>
 
