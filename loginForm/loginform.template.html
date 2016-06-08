@@ -1,0 +1,14 @@
+<form name="myForm" id="login_form"  ng-hide="login.myform">
+
+	<input  id="username" name="username" class=" username_class credentials" type="text" placeholder="E-mail" ng-model="username" name="myInput"/>
+	
+	<div class="error_msg" id="error_msg"  ng-hide="login.error"> 
+		<div class="arrow-up">
+		</div>
+		
+	</div>
+	<input id="password" ng-model="login.pass" name="pass" class="credentials" type="password" placeholder="Password" />
+	
+	<button id="login_button"  class="buttons" type="submit" ng-click="login.credentials_check()">Влез</button>
+	
+</form>
