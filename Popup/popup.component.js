@@ -5,12 +5,9 @@ angular.
   component('popUp', {
     templateUrl:'Popup/popup.template.html',
 	controllerAs: 'self',
-    controller: function popupController($http) {
+    controller:['$scope','$http', function popupController($scope,$http) {
 		
-		var error = angular.element(error_msg);
-		var error_reset = angular.element(error_msg_reset);
-		var self=this;
-		self.titles='Вход';
+		var self = this;
 		
 		$http.get('services/registration-error.json').then(function(response_error) {
         self.error_msg = response_error.data; });
@@ -18,47 +15,63 @@ angular.
 		$http.get('js/credentials.json').then(function(response_cred) {
         self.credentials = response_cred.data; });
 		
-		self.logistics = function(){
-			
-			self.overlay=false;
-			self.username='';
-			self.pass='';
-			
-		};
-		self.LoginForm = function() {
-			
-			self.myform = false;
-			self.myform_password_reset = false;
-			self.username='';
-			self.pass='';
-			error.css("visibility","hidden");
-			self.titles='Вход';
-		};
-		self.passwordReset= function() {
-			
-			self.myform = true;
-			self.myform_password_reset = true;
-			self.username='';
-			self.pass='';
-			error.css("visibility","hidden");
-			self.titles='Забравена парола';
-		};
+		$scope.tabs = [{
+            title: 'Вход',
+            url: 'loginform/loginform.template.html'
+        }, {
+            title: 'Забравена парола',
+            url: 'passwordResetForm/passwordReset.template.html'
+        }
+		];
 		
-		self.showLogin = function showLogin(){
-		
+		self.Logistics = function(){
+			
+			self.username = '';
+			self.pass = '';
+			self.username_reset = '';
+			
+		}
+		self.showLogin=function(){
+
 			self.overlay = true;
-			self.titles='Вход';
+			self.title = $scope.tabs[0].title;
+			$scope.currentTab = $scope.tabs[0].url;
+			self.Logistics();
 			
-		};
+		}
 		self.closeLogin = function (){
 			
-			self.logistics();
-			error.css("visibility","hidden");
-			self.titles='Вход';
+			self.overlay = false;
+			self.title = $scope.tabs[1].title;
+			$scope.currentTab = $scope.tabs[1].url;
+			self.Logistics();
+			
+		}
 		
-		};
+
+		$scope.onClickTab = function (tab) {
+			
+			self.Logistics();
+			
+			if(self.title == $scope.tabs[0].title){
+				
+				self.title = $scope.tabs[1].title;
+				
+			}
+			else if(self.title == $scope.tabs[1].title){ 
+			
+				self.title = $scope.tabs[0].title;
+				
+			}
+			$scope.currentTab = tab.url;
+			
+		}
 		
-		
+		$scope.isActiveTab = function(tabUrl) {
+			
+			return tabUrl == $scope.currentTab;
+			
+		}
 		self.validateEmail = function (email) {
 			
 			var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ig;
@@ -66,8 +79,10 @@ angular.
 			return re.test(email);
 	
 		};
-
-		self.credentials_check = function(){
+		
+		$scope.credentials_check = function(){
+			
+			var error = angular.element(error_msg);
 			
 			if (self.username=='' || self.username==undefined){
 				
@@ -87,9 +102,8 @@ angular.
 
 				if(self.username == self.credentials.email && self.pass == self.credentials.pass ){
 				
-					self.logistics();
 					error.css("visibility","hidden");
-								
+					self.overlay = false;			
 				}
 				else {
 					
@@ -118,9 +132,11 @@ angular.
 			}; 
 		
 
-		};
+		};		
 		
-		self.passwordResetCheck = function(){
+		$scope.passwordResetCheck = function(){
+			
+			var error_reset = angular.element(error_msg_reset);
 			
 			if (self.username_reset=='' || self.username_reset==undefined){
 				
@@ -137,11 +153,10 @@ angular.
 
 				if(self.username_reset == self.credentials.email){
 				
-					self.myform = false;
-					self.myform_password_reset = false;
-					self.titles='Вход';
+					self.title = $scope.tabs[0].title;
 					self.username_reset ='';
 					error_reset.css("visibility","hidden");
+					$scope.currentTab = $scope.tabs[0].url;
 					
 				}
 				else {
@@ -169,5 +184,5 @@ angular.
 			}; 
 
 		};
-    }
+    }]
   });

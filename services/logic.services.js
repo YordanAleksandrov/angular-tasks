@@ -1,23 +1,14 @@
 angular.
-	module('logic').factory('PopupControl',function(){
+	module('logic').service('PopupControl',function($rootScope){
 		
+		this.something='hello';
+		this.overlay= false;
+		this.showLogin = function (){
 		
-		return {
+			this.overlay= true;
+			this.something = 'hello from the other side';
 			
-			showLogin:function showLogin(overlay){
-			
-				overlay = true;
-				
-			},
-			closeLogin:function (username,pass,overlay){
-				
-				overlay=false;
-				username = '';
-				pass='';
-				popup.error.css("visibility","hidden");
-			
-			}
 		}
 
-		
 	});
+	
